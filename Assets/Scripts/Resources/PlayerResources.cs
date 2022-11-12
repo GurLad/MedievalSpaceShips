@@ -43,6 +43,15 @@ public class PlayerResources : MonoBehaviour
         {
             values.Add((ResourceType)i, defaultResourceValue);
         }
+        ResetData();
+    }
+
+    public void ResetData()
+    {
+        for (int i = 0; i < (int)ResourceType.End; i++)
+        {
+            values[(ResourceType)i] = defaultResourceValue;
+        }
         Distance = distanceTarget;
     }
 }

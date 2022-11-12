@@ -9,6 +9,6 @@ public class ObjectMover : MonoBehaviour
 
     private void Start()
     {
-        GetComponent<Rigidbody>().velocity = new Vector3(Random.Range(MIN_SPEED, MAX_SPEED), Random.Range(-01f, 0.1f), 0);
+        GetComponent<Rigidbody>().velocity = new Vector3(-Random.Range(MIN_SPEED, MAX_SPEED), Random.Range(-01f, 0.1f), 0);
     }
 }

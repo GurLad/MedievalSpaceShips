@@ -10,13 +10,17 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float Speed;
     [SerializeField] float EelPowerSpeed;
     [SerializeField] int secondsOfEelPower;
+    [SerializeField] float distanceToOutpost;
+    [SerializeField] float secondsTillFoodLose;
     bool EelPowerActive = false;
     float timeSinceEelPowerUsed = 0;
+    float distance;
+    float foodCount;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        distance = PlayerResources.Current.Distance;
     }
 
     // Update is called once per frame
@@ -37,6 +41,23 @@ public class PlayerController : MonoBehaviour
                 EelPowerActive = false;
                 timeSinceEelPowerUsed = 0;
             }
+        }
+        PlayerResources.Current.Distance = distance - transform.position.x;
+        PlayerResources.Current[ResourceType.Morale] += 0;
+        if (PlayerResources.Current.Distance <= 0)
+        {
+            GameController.Current.Win();
+        }
+        if (transform.position.x > distanceToOutpost)
+        {
+            GameController.Current.LoadNextPart();
+        }
+        foodCount += Time.deltaTime;
+        if (foodCount >= secondsTillFoodLose)
+        {
+            foodCount -= secondsTillFoodLose;
+            PlayerResources.Current[ResourceType.Food]--;
+            LoseCond();
         }
     }
 
@@ -107,6 +128,16 @@ public class PlayerController : MonoBehaviour
         {
             PlayerResources.Current[ResourceType.Health] -= 1;
             Destroy(collision.gameObject);
+            LoseCond();
+        }
+    }
+
+    void LoseCond()
+    {
+        if (PlayerResources.Current[ResourceType.Health] <= 0 || PlayerResources.Current[ResourceType.Food] <= 0)
+        {
+            PlayerResources.Current.ResetData();
+            GameController.Current.Lose();
         }
     }
 }

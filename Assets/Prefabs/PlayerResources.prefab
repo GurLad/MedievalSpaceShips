@@ -45,4 +45,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Distance: 0
   defaultResourceValue: 15
-  distanceTarget: 5000
+  distanceTarget: 1500
