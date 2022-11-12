@@ -36,4 +36,14 @@ public class GameController : MonoBehaviour
             SceneLoader.LoadScene(currentScene = SideScrollerSceneName);
         }
     }
+
+    public void Win()
+    {
+        SceneLoader.LoadScene("Win");
+    }
+
+    public void Lose()
+    {
+        SceneLoader.LoadScene("Menu");
+    }
 }
