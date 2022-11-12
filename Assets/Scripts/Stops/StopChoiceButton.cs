@@ -5,9 +5,11 @@ using UnityEngine.UI;
 
 public class StopChoiceButton : MonoBehaviour
 {
+    [Header("Values")]
+    public float ResourceIconOffset;
     [Header("Objects")]
     public Text Description;
-    public Text Resources;
+    public ResourceIcon ResourceIcon;
     [Header("Reset")]
     public Button BaseButton;
     public RectTransform RectTransform;
@@ -19,13 +21,22 @@ public class StopChoiceButton : MonoBehaviour
         RectTransform = GetComponent<RectTransform>();
     }
 
+    private void Start()
+    {
+        ResourceIcon.gameObject.SetActive(false);
+    }
+
     public void Display(StopChoice stopChoice)
     {
         Description.text = stopChoice.Description;
-        Resources.text = stopChoice.ResourceModifiersString();
         resourceModifiers = stopChoice.ResourceModifiers;
-        foreach (ResourceModifier resourceModifier in resourceModifiers)
+        for (int i = 0; i < resourceModifiers.Count; i++)
         {
+            ResourceModifier resourceModifier = resourceModifiers[i];
+            ResourceIcon resourceUI = Instantiate(ResourceIcon, ResourceIcon.transform.parent);
+            resourceUI.RectTransform.anchoredPosition += new Vector2(i - (resourceModifiers.Count - 1) / 2.0f, 0) * ResourceIconOffset;
+            resourceUI.Show(resourceModifier.Type, resourceModifier.ToString());
+            resourceUI.gameObject.SetActive(true);
             if (-resourceModifier.Amount > PlayerResources.Current[resourceModifier.Type])
             {
                 BaseButton.enabled = false;

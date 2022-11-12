@@ -15,6 +15,7 @@ public class PlayerResources : MonoBehaviour
         set
         {
             values[resource] = value;
+            ResourceUIPanel.Current?.UpdateUI();
         }
     }
     private Dictionary<ResourceType, int> values = new Dictionary<ResourceType, int>();

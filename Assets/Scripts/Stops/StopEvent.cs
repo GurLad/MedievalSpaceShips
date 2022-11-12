@@ -56,4 +56,9 @@ public class ResourceModifier
 {
     public ResourceType Type;
     public int Amount;
+
+    public override string ToString()
+    {
+        return (Amount > 0 ? "+" : "") + Amount;
+    }
 }
