@@ -7,7 +7,7 @@ public class GameController : MonoBehaviour
     public static GameController Current;
     public string SideScrollerSceneName;
     public string StopSceneName;
-    //private string last
+    private string currentScene;
 
     private void Awake()
     {
@@ -27,7 +27,13 @@ public class GameController : MonoBehaviour
 
     public void LoadNextPart()
     {
-        // Temp
-        SceneLoader.LoadScene("GurSandbox");
+        if (currentScene == SideScrollerSceneName)
+        {
+            SceneLoader.LoadScene(currentScene = StopSceneName);
+        }
+        else
+        {
+            SceneLoader.LoadScene(currentScene = SideScrollerSceneName);
+        }
     }
 }
