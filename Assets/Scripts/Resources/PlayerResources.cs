@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerResources : MonoBehaviour
 {
     public static PlayerResources Current;
-    public int DefaultResourceValue;
+    public float Distance;
     public int this[ResourceType resource]
     {
         get
@@ -18,6 +18,10 @@ public class PlayerResources : MonoBehaviour
             ResourceUIPanel.Current?.UpdateUI();
         }
     }
+    [SerializeField]
+    private int defaultResourceValue;
+    [SerializeField]
+    private float distanceTarget;
     private Dictionary<ResourceType, int> values = new Dictionary<ResourceType, int>();
 
     private void Awake()
@@ -36,7 +40,8 @@ public class PlayerResources : MonoBehaviour
         // Init values
         for (int i = 0; i < (int)ResourceType.End; i++)
         {
-            values.Add((ResourceType)i, DefaultResourceValue);
+            values.Add((ResourceType)i, defaultResourceValue);
         }
+        Distance = distanceTarget;
     }
 }

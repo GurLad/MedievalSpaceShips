@@ -8,12 +8,13 @@ public class StopChoiceButton : MonoBehaviour
     [Header("Values")]
     public float ResourceIconOffset;
     [Header("Objects")]
+    public StopUI StopUI;
     public Text Description;
     public ResourceIcon ResourceIcon;
     [Header("Reset")]
     public Button BaseButton;
     public RectTransform RectTransform;
-    private List<ResourceModifier> resourceModifiers;
+    private StopChoice stopChoice;
 
     private void Reset()
     {
@@ -26,15 +27,15 @@ public class StopChoiceButton : MonoBehaviour
         ResourceIcon.gameObject.SetActive(false);
     }
 
-    public void Display(StopChoice stopChoice)
+    public void Display(StopChoice choice)
     {
+        stopChoice = choice;
         Description.text = stopChoice.Description;
-        resourceModifiers = stopChoice.ResourceModifiers;
-        for (int i = 0; i < resourceModifiers.Count; i++)
+        for (int i = 0; i < stopChoice.ResourceModifiers.Count; i++)
         {
-            ResourceModifier resourceModifier = resourceModifiers[i];
+            ResourceModifier resourceModifier = stopChoice.ResourceModifiers[i];
             ResourceIcon resourceUI = Instantiate(ResourceIcon, ResourceIcon.transform.parent);
-            resourceUI.RectTransform.anchoredPosition += new Vector2(i - (resourceModifiers.Count - 1) / 2.0f, 0) * ResourceIconOffset;
+            resourceUI.RectTransform.anchoredPosition += new Vector2(i - (stopChoice.ResourceModifiers.Count - 1) / 2.0f, 0) * ResourceIconOffset;
             resourceUI.Show(resourceModifier.Type, resourceModifier.ToString());
             resourceUI.gameObject.SetActive(true);
             if (-resourceModifier.Amount > PlayerResources.Current[resourceModifier.Type])
@@ -46,10 +47,10 @@ public class StopChoiceButton : MonoBehaviour
 
     public void Choose()
     {
-        foreach (ResourceModifier resourceModifier in resourceModifiers)
+        foreach (ResourceModifier resourceModifier in stopChoice.ResourceModifiers)
         {
             PlayerResources.Current[resourceModifier.Type] += resourceModifier.Amount;
         }
-        // Continue the game loop...
+        StopUI.DisplayPostChoice(stopChoice);
     }
 }

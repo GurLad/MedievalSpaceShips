@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ResourceUIPanel : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class ResourceUIPanel : MonoBehaviour
     public float IconOffset;
     [Header("Objects")]
     public ResourceIcon BaseIcon;
+    public Text DistanceText;
     private List<ResourceIcon> icons = new List<ResourceIcon>();
 
     private void Awake()
@@ -35,5 +37,6 @@ public class ResourceUIPanel : MonoBehaviour
         {
             icons[i].Show((ResourceType)i, ((ResourceType)i).ToFormattedString() + ": " + PlayerResources.Current[(ResourceType)i]);
         }
+        DistanceText.text = "Distance: " + (int)PlayerResources.Current.Distance;
     }
 }

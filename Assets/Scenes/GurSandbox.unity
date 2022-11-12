@@ -269,14 +269,25 @@ MonoBehaviour:
         Amount: -10
       - Type: 5
         Amount: 10
+      ResultTitle: Happy Days
+      ResultDescription: The crew is very grateful for your generous feast! However,
+        food stores are getting a little low...
+      ResultContinueText: Let's hope we didn't waste too much food
     - Description: Get the cheapest food available
       ResourceModifiers:
       - Type: 2
         Amount: 10
       - Type: 5
         Amount: -10
+      ResultTitle: Grumpy Crew
+      ResultDescription: Your crew didn't like the food you brought them much. However,
+        you did manage to increase your food stores.
+      ResultContinueText: They'll thank me in the long run
     - Description: Leave
       ResourceModifiers: []
+      ResultTitle: Space Diner
+      ResultDescription: You left.
+      ResultContinueText: Continue
 --- !u!1 &719810673
 GameObject:
   m_ObjectHideFlags: 0

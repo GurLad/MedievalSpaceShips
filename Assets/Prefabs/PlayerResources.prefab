@@ -43,4 +43,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 824ae17ae3eb30a4e851a5ec8a826469, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DefaultResourceValue: 15
+  Distance: 0
+  defaultResourceValue: 15
+  distanceTarget: 5000

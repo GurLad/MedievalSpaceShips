@@ -28,6 +28,11 @@ public class StopChoice
 {
     public string Description;
     public List<ResourceModifier> ResourceModifiers;
+    [Header("Result")]
+    public string ResultTitle;
+    [TextArea]
+    public string ResultDescription;
+    public string ResultContinueText;
 
     public string ResourceModifiersString()
     {
