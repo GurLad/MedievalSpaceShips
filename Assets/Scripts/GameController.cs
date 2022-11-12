@@ -5,6 +5,9 @@ using UnityEngine;
 public class GameController : MonoBehaviour
 {
     public static GameController Current;
+    public string SideScrollerSceneName;
+    public string StopSceneName;
+    //private string last
 
     private void Awake()
     {
