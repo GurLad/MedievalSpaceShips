@@ -15,6 +15,7 @@ public class StopUI : MonoBehaviour
     public GameObject StopChoicesHolder;
     public GameObject ContinueButton;
     public Text ContinueText;
+    public GameObject LoseButton;
 
     private void Start()
     {

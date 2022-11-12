@@ -43,6 +43,10 @@ public class StopChoiceButton : MonoBehaviour
                 BaseButton.interactable = false;
             }
         }
+        if (BaseButton.interactable)
+        {
+            StopUI.LoseButton.SetActive(false);
+        }
     }
 
     public void Choose()

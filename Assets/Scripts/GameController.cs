@@ -44,6 +44,6 @@ public class GameController : MonoBehaviour
 
     public void Lose()
     {
-        SceneLoader.LoadScene("Menu");
+        SceneLoader.LoadScene("Lose");
     }
 }

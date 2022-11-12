@@ -6,9 +6,18 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Menu.unity
+    guid: 60a774095f3260a4bbc516fe13648923
+  - enabled: 1
     path: Assets/Scenes/Spaceship.unity
     guid: f4ec08876148d07e9b9bf17b1173db31
   - enabled: 1
     path: Assets/Scenes/GurSandbox.unity
     guid: d805f635e4db7ef49b10754d98c91d79
+  - enabled: 1
+    path: Assets/Scenes/Win.unity
+    guid: 7e08fc5cd691caa42b10d63805e9724f
+  - enabled: 1
+    path: Assets/Scenes/Lose.unity
+    guid: 08ef656c8980e264e8ff494a53326ace
   m_configObjects: {}
