@@ -261,7 +261,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Options:
   - Name: Space Diner
-    Description: You found a space diner.
+    Description: You found a space diner in the middle of space.
     Choices:
     - Description: Throw a feast!
       ResourceModifiers:
@@ -288,6 +288,72 @@ MonoBehaviour:
       ResultTitle: Space Diner
       ResultDescription: You left.
       ResultContinueText: Continue
+  - Name: Scrap Heap
+    Description: Your crew encountered upon a floating scrap heap. This is a good
+      opportunity to scavenge for resources.
+    Choices:
+    - Description: Search for hull parts
+      ResourceModifiers:
+      - Type: 1
+        Amount: 5
+      ResultTitle: Sturdy ship
+      ResultDescription: You managed to fix your ship's hull a bit. However, the
+        heap is already drifting apart, and you're forced to leave.
+      ResultContinueText: It was a good haul.
+    - Description: Search for engine parts
+      ResourceModifiers:
+      - Type: 3
+        Amount: 5
+      ResultTitle: Engage!
+      ResultDescription: You managed to slightly improve your engines. However, the
+        heap is already drifting apart, and you're forced to leave.
+      ResultContinueText: They'll thank me in the long run
+  - Name: Fancy Restaurant
+    Description: You chanced upon a fancy restaurant in the depths of space. Your
+      crew is eager to eat there, but the price will be steep.
+    Choices:
+    - Description: Trade away some of your engine
+      ResourceModifiers:
+      - Type: 3
+        Amount: -5
+      - Type: 2
+        Amount: 10
+      - Type: 4
+        Amount: 20
+      ResultTitle: A King's Feast
+      ResultDescription: You manage to get a respectable feast for your crew, and
+        even store some leftovers for the rest of the journey. They love you now.
+      ResultContinueText: Who needs engines, anyway?
+    - Description: Trade away some of your hull
+      ResourceModifiers:
+      - Type: 1
+        Amount: -5
+      - Type: 2
+        Amount: 10
+      - Type: 4
+        Amount: 20
+      ResultTitle: A King's Feast
+      ResultDescription: You manage to get a respectable feast for your crew, and
+        even store some leftovers for the rest of the journey. They love you now.
+      ResultContinueText: Who needs a spaceship, anyway?
+    - Description: Beg for leftovers
+      ResourceModifiers:
+      - Type: 2
+        Amount: 5
+      - Type: 4
+        Amount: -10
+      ResultTitle: Beggar's Path
+      ResultDescription: "You pester some patrons to give you leftovers. The restaurant
+        quickly drives you away, however, and your crew shames you for your actions.\r"
+      ResultContinueText: This is for their own good
+    - Description: Leave
+      ResourceModifiers:
+      - Type: 4
+        Amount: -5
+      ResultTitle: Outclassed
+      ResultDescription: The crew is grumpy that you missed such a nice opportunity
+        for relaxation.
+      ResultContinueText: It was above their pay-grade, anyway
 --- !u!1 &719810673
 GameObject:
   m_ObjectHideFlags: 0
