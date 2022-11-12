@@ -43,3 +43,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d400eb74dfe10f943bf7097bad6b360b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  SideScrollerSceneName: Spaceship
+  StopSceneName: GurSandbox
