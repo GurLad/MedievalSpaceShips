@@ -285,7 +285,7 @@ GameObject:
   - component: {fileID: 7997204452822197517}
   m_Layer: 0
   m_Name: Eel
-  m_TagString: Untagged
+  m_TagString: Resource
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

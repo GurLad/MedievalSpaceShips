@@ -70,6 +70,7 @@ public class PlayerController : MonoBehaviour
         else if(collision.gameObject.tag.Equals("Obstacle"))
         {
             PlayerResources.Current[ResourceType.Health] -= 1;
+            Destroy(collision.gameObject);
         }
     }
 }
