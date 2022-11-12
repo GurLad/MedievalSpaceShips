@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
+public enum ResourceType { ElectricEels, Health, Food, Engines, Shield, Morale }
 [Serializable]
 public class Resource 
 {
-   public enum ResourceType { Energy, Health }
     public ResourceType type;
     public float amount;
-
 }

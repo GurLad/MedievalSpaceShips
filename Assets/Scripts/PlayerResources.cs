@@ -4,27 +4,31 @@ using UnityEngine;
 
 public class PlayerResources : MonoBehaviour
 {
-    public Resource Health;
-    public Resource Energy;
-
-
-
-    public void LooseResource(Resource.ResourceType type,float amount)
+    public static PlayerResources Current;
+    public int this[ResourceType resource]
     {
-        switch (type)
+        get
         {
-            case Resource.ResourceType.Health: Health.amount -= amount; break;
-            case Resource.ResourceType.Energy: Energy.amount -= amount; break;
+            return values[resource];
+        }
+        set
+        {
+            values[resource] = value;
         }
     }
+    private Dictionary<ResourceType, int> values;
 
-    public void GainResource(Resource.ResourceType type,float amount)
+    private void Awake()
     {
-        switch (type)
+        transform.parent = null;
+        if (Current != null)
         {
-            case Resource.ResourceType.Health: Health.amount += amount; break;
-            case Resource.ResourceType.Energy: Energy.amount += amount; break;
+            DestroyImmediate(gameObject);
+            return;
+        }
+        else
+        {
+            Current = this;
         }
     }
-
 }
