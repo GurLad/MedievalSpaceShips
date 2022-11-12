@@ -47,10 +47,12 @@ public class PlayerController : MonoBehaviour
         if (PlayerResources.Current.Distance <= 0)
         {
             GameController.Current.Win();
+            Destroy(this);
         }
         if (transform.position.x > distanceToOutpost)
         {
             GameController.Current.LoadNextPart();
+            Destroy(this);
         }
         foodCount += Time.deltaTime;
         if (foodCount >= secondsTillFoodLose)
@@ -138,6 +140,7 @@ public class PlayerController : MonoBehaviour
         {
             PlayerResources.Current.ResetData();
             GameController.Current.Lose();
+            Destroy(this);
         }
     }
 }
