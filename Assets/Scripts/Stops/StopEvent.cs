@@ -31,22 +31,29 @@ public class StopChoice
 
     public string ResourceModifiersString()
     {
-        string result = "(";
-        for (int i = 0; i < ResourceModifiers.Count; i++)
+        if (ResourceModifiers.Count > 0)
         {
-            result +=
-                (i > 0 ? ", " : "") +
-                (ResourceModifiers[i].Amount > 0 ? "+" : "") +
-                ResourceModifiers[i].Amount + " " +
-                ResourceModifiers[i].Resource;
+            string result = "(";
+            for (int i = 0; i < ResourceModifiers.Count; i++)
+            {
+                result +=
+                    (i > 0 ? ", " : "") +
+                    (ResourceModifiers[i].Amount > 0 ? "+" : "") +
+                    ResourceModifiers[i].Amount + " " +
+                    ResourceModifiers[i].Type;
+            }
+            return result + ")";
         }
-        return result + ")";
+        else
+        {
+            return "(Nothing)";
+        }
     }
 }
 
 [System.Serializable]
 public class ResourceModifier
 {
-    public ResourceType Resource;
+    public ResourceType Type;
     public int Amount;
 }

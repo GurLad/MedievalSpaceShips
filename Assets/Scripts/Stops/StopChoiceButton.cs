@@ -11,6 +11,7 @@ public class StopChoiceButton : MonoBehaviour
     [Header("Reset")]
     public Button BaseButton;
     public RectTransform RectTransform;
+    private List<ResourceModifier> resourceModifiers;
 
     private void Reset()
     {
@@ -22,6 +23,22 @@ public class StopChoiceButton : MonoBehaviour
     {
         Description.text = stopChoice.Description;
         Resources.text = stopChoice.ResourceModifiersString();
-        // TBA: Make sure can actually afford it
+        resourceModifiers = stopChoice.ResourceModifiers;
+        foreach (ResourceModifier resourceModifier in resourceModifiers)
+        {
+            if (-resourceModifier.Amount > PlayerResources.Current[resourceModifier.Type])
+            {
+                BaseButton.enabled = false;
+            }
+        }
+    }
+
+    public void Choose()
+    {
+        foreach (ResourceModifier resourceModifier in resourceModifiers)
+        {
+            PlayerResources.Current[resourceModifier.Type] += resourceModifier.Amount;
+        }
+        // Continue the game loop...
     }
 }

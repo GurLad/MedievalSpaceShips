@@ -27,7 +27,7 @@ public class StopUI : MonoBehaviour
         {
             StopChoiceButton newButton = Instantiate(StopChoiceButton, StopChoiceButton.transform.parent);
             newButton.Display(stopEvent.Choices[i]);
-            newButton.RectTransform.anchoredPosition += new Vector2(0, ButtonOffset * i);
+            newButton.RectTransform.anchoredPosition += new Vector2(0, ButtonOffset * (stopEvent.Choices.Count - 1 - i));
             newButton.gameObject.SetActive(true);
         }
     }

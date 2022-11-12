@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerResources : MonoBehaviour
 {
     public static PlayerResources Current;
+    public int DefaultResourceValue;
     public int this[ResourceType resource]
     {
         get
@@ -16,10 +17,11 @@ public class PlayerResources : MonoBehaviour
             values[resource] = value;
         }
     }
-    private Dictionary<ResourceType, int> values;
+    private Dictionary<ResourceType, int> values = new Dictionary<ResourceType, int>();
 
     private void Awake()
     {
+        // Init singelton
         transform.parent = null;
         if (Current != null)
         {
@@ -29,6 +31,11 @@ public class PlayerResources : MonoBehaviour
         else
         {
             Current = this;
+        }
+        // Init values
+        for (int i = 0; i < (int)ResourceType.End; i++)
+        {
+            values.Add((ResourceType)i, DefaultResourceValue);
         }
     }
 }
