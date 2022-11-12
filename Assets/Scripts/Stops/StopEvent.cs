@@ -28,6 +28,11 @@ public class StopChoice
 {
     public string Description;
     public List<ResourceModifier> ResourceModifiers;
+    [Header("Result")]
+    public string ResultTitle;
+    [TextArea]
+    public string ResultDescription;
+    public string ResultContinueText;
 
     public string ResourceModifiersString()
     {
@@ -56,4 +61,9 @@ public class ResourceModifier
 {
     public ResourceType Type;
     public int Amount;
+
+    public override string ToString()
+    {
+        return (Amount > 0 ? "+" : "") + Amount;
+    }
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public enum ResourceType { ElectricEels, Health, Food, Engines, Shield, Morale, End }
+public enum ResourceType { ElectricEels, Health, Food, Engines, Morale, End }
 [Serializable]
 public class Resource 
 {

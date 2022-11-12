@@ -12,6 +12,9 @@ public class StopUI : MonoBehaviour
     public Text Title;
     public Text Description;
     public StopChoiceButton StopChoiceButton;
+    public GameObject StopChoicesHolder;
+    public GameObject ContinueButton;
+    public Text ContinueText;
 
     private void Start()
     {
@@ -30,5 +33,16 @@ public class StopUI : MonoBehaviour
             newButton.RectTransform.anchoredPosition += new Vector2(0, ButtonOffset * (stopEvent.Choices.Count - 1 - i));
             newButton.gameObject.SetActive(true);
         }
+        StopChoicesHolder.SetActive(true);
+        ContinueButton.SetActive(false);
+    }
+
+    public void DisplayPostChoice(StopChoice stopChoice)
+    {
+        Title.text = stopChoice.ResultTitle;
+        Description.text = stopChoice.ResultDescription;
+        ContinueText.text = stopChoice.ResultContinueText;
+        StopChoicesHolder.SetActive(false);
+        ContinueButton.SetActive(true);
     }
 }

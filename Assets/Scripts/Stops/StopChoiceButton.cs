@@ -5,13 +5,16 @@ using UnityEngine.UI;
 
 public class StopChoiceButton : MonoBehaviour
 {
+    [Header("Values")]
+    public float ResourceIconOffset;
     [Header("Objects")]
+    public StopUI StopUI;
     public Text Description;
-    public Text Resources;
+    public ResourceIcon ResourceIcon;
     [Header("Reset")]
     public Button BaseButton;
     public RectTransform RectTransform;
-    private List<ResourceModifier> resourceModifiers;
+    private StopChoice stopChoice;
 
     private void Reset()
     {
@@ -19,26 +22,35 @@ public class StopChoiceButton : MonoBehaviour
         RectTransform = GetComponent<RectTransform>();
     }
 
-    public void Display(StopChoice stopChoice)
+    private void Start()
     {
+        ResourceIcon.gameObject.SetActive(false);
+    }
+
+    public void Display(StopChoice choice)
+    {
+        stopChoice = choice;
         Description.text = stopChoice.Description;
-        Resources.text = stopChoice.ResourceModifiersString();
-        resourceModifiers = stopChoice.ResourceModifiers;
-        foreach (ResourceModifier resourceModifier in resourceModifiers)
+        for (int i = 0; i < stopChoice.ResourceModifiers.Count; i++)
         {
+            ResourceModifier resourceModifier = stopChoice.ResourceModifiers[i];
+            ResourceIcon resourceUI = Instantiate(ResourceIcon, ResourceIcon.transform.parent);
+            resourceUI.RectTransform.anchoredPosition += new Vector2(i - (stopChoice.ResourceModifiers.Count - 1) / 2.0f, 0) * ResourceIconOffset;
+            resourceUI.Show(resourceModifier.Type, resourceModifier.ToString());
+            resourceUI.gameObject.SetActive(true);
             if (-resourceModifier.Amount > PlayerResources.Current[resourceModifier.Type])
             {
-                BaseButton.enabled = false;
+                BaseButton.interactable = false;
             }
         }
     }
 
     public void Choose()
     {
-        foreach (ResourceModifier resourceModifier in resourceModifiers)
+        foreach (ResourceModifier resourceModifier in stopChoice.ResourceModifiers)
         {
             PlayerResources.Current[resourceModifier.Type] += resourceModifier.Amount;
         }
-        // Continue the game loop...
+        StopUI.DisplayPostChoice(stopChoice);
     }
 }
