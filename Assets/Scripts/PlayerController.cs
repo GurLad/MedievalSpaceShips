@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour
     {
         MoveInput = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0f);
         MovePlayer();
-        // Debug.Log(MoveInput.y);
+        Debug.Log(MoveInput.x);
     }
 
     void MovePlayer()
@@ -45,7 +45,7 @@ public class PlayerController : MonoBehaviour
         {
             switch (collision.gameObject.name)
             {
-                case "ElectricEel":
+                case "Eel":
                     PlayerResources.Current[ResourceType.ElectricEels] += 1;
                     break;
                 case "Health":
@@ -65,7 +65,7 @@ public class PlayerController : MonoBehaviour
                     break;
             }
             Destroy(collision.gameObject);
-            Debug.Log(PlayerResources.Current[ResourceType.ElectricEels]);
+            // Debug.Log(PlayerResources.Current[ResourceType.ElectricEels]);
         }
         else if(collision.gameObject.tag.Equals("Obstacle"))
         {
