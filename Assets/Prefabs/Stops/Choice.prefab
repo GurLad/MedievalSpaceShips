@@ -69,8 +69,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: -1198477067713850731, guid: 5e755c7e5ee8541409cd8e164b79b53d, type: 3}
+  m_Type: 2
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -148,6 +148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ResourceIconOffset: 60
+  StopUI: {fileID: 0}
   Description: {fileID: 57453540031255848}
   ResourceIcon: {fileID: 88434874875968140}
   BaseButton: {fileID: 57453539399278511}

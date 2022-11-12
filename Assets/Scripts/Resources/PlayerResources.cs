@@ -37,6 +37,7 @@ public class PlayerResources : MonoBehaviour
         {
             Current = this;
         }
+        DontDestroyOnLoad(gameObject);
         // Init values
         for (int i = 0; i < (int)ResourceType.End; i++)
         {

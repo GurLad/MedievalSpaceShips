@@ -209,7 +209,6 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 2973d67e6a4da0147a00921583358d7b, type: 3}
   - {fileID: 21300000, guid: 069ada53c47acc74594402ce3ebbc55f, type: 3}
   - {fileID: 21300000, guid: 099e9618af8018343a1d7364bef111be, type: 3}
-  - {fileID: 21300000, guid: ec326013ebf46404f8b9553a9ab2e456, type: 3}
   - {fileID: 21300000, guid: 52094237ba186d744bfe3ca640410620, type: 3}
   ResourceImage: {fileID: 728667438626034023}
   Text: {fileID: 728667437746742965}

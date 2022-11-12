@@ -40,7 +40,7 @@ public class StopChoiceButton : MonoBehaviour
             resourceUI.gameObject.SetActive(true);
             if (-resourceModifier.Amount > PlayerResources.Current[resourceModifier.Type])
             {
-                BaseButton.enabled = false;
+                BaseButton.interactable = false;
             }
         }
     }
