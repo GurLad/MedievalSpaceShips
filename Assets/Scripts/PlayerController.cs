@@ -8,6 +8,10 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField] Rigidbody PlayerRigidBody;
     [SerializeField] float Speed;
+    [SerializeField] float EelPowerSpeed;
+    [SerializeField] int secondsOfEelPower;
+    bool EelPowerActive = false;
+    float timeSinceEelPowerUsed = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -20,12 +24,44 @@ public class PlayerController : MonoBehaviour
     {
         MoveInput = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0f);
         MovePlayer();
-        Debug.Log(MoveInput.x);
+
+        if(Input.GetKeyDown("space"))
+        {
+            TriggerEelPower();
+        }
+        if(EelPowerActive)
+        {
+            timeSinceEelPowerUsed += Time.deltaTime;
+            if(timeSinceEelPowerUsed > secondsOfEelPower)
+            {
+                EelPowerActive = false;
+                timeSinceEelPowerUsed = 0;
+            }
+        }
+    }
+
+    void TriggerEelPower()
+    {
+        if(PlayerResources.Current[ResourceType.ElectricEels] > 0)
+        {
+            EelPowerActive = true;
+            PlayerResources.Current[ResourceType.ElectricEels] -= 1;
+        }
     }
 
     void MovePlayer()
     {
-        Vector3 MoveVec = transform.TransformDirection(MoveInput) * Speed;
+        // Movement Speed depends on amount of engines 
+        Vector3 MoveVec;
+        if(EelPowerActive)
+        {
+            MoveVec = transform.TransformDirection(MoveInput) * ((PlayerResources.Current[ResourceType.Engines])/2 + Speed) * EelPowerSpeed;
+        }
+        else
+        {
+            MoveVec = transform.TransformDirection(MoveInput) * ((PlayerResources.Current[ResourceType.Engines])/2 + Speed);
+        }
+
         float yMovement = MoveVec.y;
         // Only use y movement if player in bounds of camera 
         if((transform.position.y <= -4.0 && MoveInput.y <= 0) || (transform.position.y >= 6.0 && MoveInput.y >= 0))
