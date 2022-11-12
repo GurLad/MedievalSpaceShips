@@ -450,6 +450,162 @@ MonoBehaviour:
       ResultDescription: The crew is grumpy that you missed such a nice opportunity
         for relaxation.
       ResultContinueText: It was above their pay-grade, anyway
+  - Name: Eel Black Market
+    Description: You encounter a few shady aliens, offering to cook your supply of
+      electric eels for food. While you know this is highly illegal and immoral,
+      it is a good way to get lots of food quickly.
+    Choices:
+    - Description: Cook some eels
+      ResourceModifiers:
+      - Type: 0
+        Amount: -5
+      - Type: 2
+        Amount: 20
+      - Type: 4
+        Amount: -10
+      ResultTitle: Cooked Eels
+      ResultDescription: Just a few eels amount to a surprising amount of food, but
+        your crew is very unhappy with your desicion.
+      ResultContinueText: Food is food
+    - Description: Cook a lot of eels
+      ResourceModifiers:
+      - Type: 0
+        Amount: -10
+      - Type: 2
+        Amount: 40
+      - Type: 4
+        Amount: -20
+      ResultTitle: Cooked Eels
+      ResultDescription: Just a few eels amount to a surprising amount of food, but
+        your crew is extremely unhappy with your desicion.
+      ResultContinueText: Food is food
+    - Description: Leave
+      ResourceModifiers:
+      - Type: 4
+        Amount: 10
+      ResultTitle: Moral High Ground
+      ResultDescription: You decide to care for your eels and not take part in any
+        illegal buissness. Your crew is proud of you.
+      ResultContinueText: Who needs food, anyway?
+  - Name: Trading Outpost
+    Description: You find a large, bustling trading outpost, filled with all sorts
+      of deals.
+    Choices:
+    - Description: Trade engines for food
+      ResourceModifiers:
+      - Type: 3
+        Amount: -5
+      - Type: 2
+        Amount: 10
+      ResultTitle: More Food
+      ResultDescription: You find a trader offering food for engines, and take the
+        offer.
+      ResultContinueText: Food is good
+    - Description: Trade eels for engines
+      ResourceModifiers:
+      - Type: 0
+        Amount: -5
+      - Type: 3
+        Amount: 5
+      ResultTitle: Faster Ship
+      ResultDescription: You find a trader offering engines for eels, and take the
+        offer.
+      ResultContinueText: Speed is good
+    - Description: Trade food for eels
+      ResourceModifiers:
+      - Type: 2
+        Amount: -10
+      - Type: 0
+        Amount: 5
+      ResultTitle: Eels!
+      ResultDescription: You find a trader offering food for eels, and take the offer.
+      ResultContinueText: Eels are good
+    - Description: Leave
+      ResourceModifiers: []
+      ResultTitle: Goodbye, Outpost
+      ResultDescription: You leave without trading anything.
+      ResultContinueText: See you later
+  - Name: Engine Obsession
+    Description: You are hailed by a small ship crewed by a single person. She raves
+      about the beautiful engines on your ship, and offers a lot for some of them.
+    Choices:
+    - Description: Request some food
+      ResourceModifiers:
+      - Type: 3
+        Amount: -10
+      - Type: 2
+        Amount: 20
+      ResultTitle: A Huge Stockpile
+      ResultDescription: She immediately accepts your offer, giving you all the food
+        on her ship. She doesn't seem too concerned about starving, now that she
+        has your beautiful engines.
+      ResultContinueText: Guess she feeds on metal
+    - Description: Request some eels
+      ResourceModifiers:
+      - Type: 3
+        Amount: -10
+      - Type: 0
+        Amount: 20
+      ResultTitle: Eels Everywhere
+      ResultDescription: "She immediately accepts your offer, giving you all the
+        eels on her ship. She doesn't seem to care too much about eels.\r"
+      ResultContinueText: Poor creatures
+    - Description: Request some repairs
+      ResourceModifiers:
+      - Type: 3
+        Amount: -10
+      - Type: 1
+        Amount: 10
+      ResultTitle: Master Builder
+      ResultDescription: She immediately accepts, going over to your ship and helping
+        you repair it.
+      ResultContinueText: Thank you!
+    - Description: Leave
+      ResourceModifiers: []
+      ResultTitle: No Thanks
+      ResultDescription: She keeps pestering you for quite some time, but eventually
+        you manage to lose her.
+      ResultContinueText: Goodbye
+  - Name: Starving & Stranded
+    Description: You receive an emergency signal, and find a small, derelict ship.
+      It's captain hails you, pleading for some food and engines to give his crew
+      a chance to survive.
+    Choices:
+    - Description: Help him
+      ResourceModifiers:
+      - Type: 3
+        Amount: -10
+      - Type: 2
+        Amount: -10
+      - Type: 4
+        Amount: 30
+      ResultTitle: Generosity
+      ResultDescription: You order your crew to give him the required resources and
+        fix the ship, and they happily oblige. The captain thanks you, and your crew
+        hails you as a hero.
+      ResultContinueText: Let's hope we're not the next ones to beg for help
+    - Description: Request some eels in return
+      ResourceModifiers:
+      - Type: 3
+        Amount: -10
+      - Type: 2
+        Amount: -10
+      - Type: 0
+        Amount: 10
+      - Type: 4
+        Amount: 10
+      ResultTitle: Work, Work
+      ResultDescription: You give him the required resources, but ask for all his
+        eels in return. The captain grudgingly obliges.
+      ResultContinueText: No free lunches on my watch
+    - Description: Leave
+      ResourceModifiers:
+      - Type: 4
+        Amount: -20
+      ResultTitle: Heartless
+      ResultDescription: You abandon the ship to their fate. Your crew is dissapointed
+        in you.
+      ResultContinueText: Goodbye
 --- !u!1 &719810673
 GameObject:
   m_ObjectHideFlags: 0
