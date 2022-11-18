@@ -1,6 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
+
+/// <summary>
+/// Class <c>CrossfadeMusicPlayer</c> initilizes and handles playing music.
+/// </summary>
+///
 
 [System.Serializable]
 public class CrossfadeMusicPlayerObject

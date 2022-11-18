@@ -1,6 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
+
+/// <summary>
+/// Class <c>SoundController</c> handles playing sounds.
+/// </summary>
+///
 
 public class SoundController : MonoBehaviour
 {

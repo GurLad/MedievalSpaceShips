@@ -1,7 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Class <c>GameController</c> handles game progression loads scenes accordingly.
+/// </summary>
+///
 public class GameController : MonoBehaviour
 {
     public static GameController Current;
@@ -9,6 +11,7 @@ public class GameController : MonoBehaviour
     public string StopSceneName;
     private string currentScene;
 
+    // Initialize the Game Controller as a singleton
     private void Awake()
     {
         // Init singelton
@@ -25,6 +28,7 @@ public class GameController : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+    // Method to load the side-scroller part or stop events according to the currently set scene
     public void LoadNextPart()
     {
         if (currentScene == SideScrollerSceneName)
@@ -37,11 +41,13 @@ public class GameController : MonoBehaviour
         }
     }
 
+    // The method handles scene loading in case of winning the game
     public void Win()
     {
         SceneLoader.LoadScene("Win");
     }
 
+    // The method handles scene loading in case of loosing the game
     public void Lose()
     {
         SceneLoader.LoadScene("Lose");

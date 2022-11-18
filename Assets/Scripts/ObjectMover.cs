@@ -1,7 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Class <c>ObjectMover</c> handles movement of a spawned object with random velocity initilization.
+/// </summary>
+///
 public class ObjectMover : MonoBehaviour
 {
     private const float MIN_SPEED = 2;

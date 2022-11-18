@@ -1,9 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+/// <summary>
+/// Class <c>SceneLoader</c> loads scenes with a blending transition.
+/// </summary>
+///
 public class SceneLoader : MonoBehaviour
 {
     private static SceneLoader current;
