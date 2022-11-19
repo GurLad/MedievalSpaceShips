@@ -1,7 +1,10 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// Class <c>StopController</c> chooses a Stop Event from a list of possible stops.
+/// </summary>
+///
 public class StopController : MonoBehaviour
 {
     public List<StopEvent> Options;

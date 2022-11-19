@@ -1,6 +1,10 @@
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Class <c>StopChoiceButton</c> displays a Stop Event Option and manages the changes in Resources if chosen.
+/// </summary>
+///
 public class StopChoiceButton : MonoBehaviour
 {
     [Header("Values")]
@@ -25,6 +29,7 @@ public class StopChoiceButton : MonoBehaviour
         ResourceIcon.gameObject.SetActive(false);
     }
 
+    // Method displays the desciption of Resource Modifiers of the option 
     public void Display(StopChoice choice)
     {
         stopChoice = choice;
@@ -47,6 +52,7 @@ public class StopChoiceButton : MonoBehaviour
         }
     }
 
+    // Method handles the changes in Resources if the Option was chosen 
     public void Choose()
     {
         foreach (ResourceModifier resourceModifier in stopChoice.ResourceModifiers)

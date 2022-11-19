@@ -1,8 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Class <c>StopUI</c> manages the StopPanel. An Event is chosen and its UI displayed.
+/// </summary>
+///
 public class StopUI : MonoBehaviour
 {
     [Header("Values")]
@@ -17,12 +19,15 @@ public class StopUI : MonoBehaviour
     public Text ContinueText;
     public GameObject LoseButton;
 
+    // At start, an Event is chosen by the StopController and displayed.
     private void Start()
     {
+        // The placeholder Stop Choise Button is disabled
         StopChoiceButton.gameObject.SetActive(false);
         Display(StopController.Choose());
     }
 
+    // Method to read the data from a given Stop Event and create the according UI Elements from it.
     public void Display(StopEvent stopEvent)
     {
         Title.text = stopEvent.Name;
@@ -38,6 +43,7 @@ public class StopUI : MonoBehaviour
         ContinueButton.SetActive(false);
     }
 
+    // Method to display text after the player chose an event
     public void DisplayPostChoice(StopChoice stopChoice)
     {
         Title.text = stopChoice.ResultTitle;

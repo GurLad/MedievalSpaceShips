@@ -1,8 +1,11 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/// <summary>
+/// Class <c>ResourceUIPanel</c> draws the Resource UI Icons and texts as well as the distance to the home planet.
+/// </summary>
+///
 public class ResourceUIPanel : MonoBehaviour
 {
     public static ResourceUIPanel Current;
@@ -11,6 +14,7 @@ public class ResourceUIPanel : MonoBehaviour
     [Header("Objects")]
     public ResourceIcon BaseIcon;
     public Text DistanceText;
+    // A list with all resource icons instantiated at start
     private List<ResourceIcon> icons = new List<ResourceIcon>();
 
     private void Awake()
@@ -18,6 +22,7 @@ public class ResourceUIPanel : MonoBehaviour
         Current = this;
     }
 
+    // At the start the placeholder BaseIcon is deactivated and for each Resource an Icon is instantiated.
     private void Start()
     {
         BaseIcon.gameObject.SetActive(false);
@@ -31,6 +36,7 @@ public class ResourceUIPanel : MonoBehaviour
         UpdateUI();
     }
 
+    // The UI is updated according to the player resource data
     public void UpdateUI()
     {
         for (int i = 0; i < icons.Count; i++)
